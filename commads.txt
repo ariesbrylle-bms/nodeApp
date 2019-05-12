@@ -1,0 +1,74 @@
+URL: https://www.sitepoint.com/build-simple-beginner-app-node-bootstrap-mongodb/
+
+// initialize git in the folder
+git init
+
+// connect to github repository
+git remote add  origin LINK_TO_GIT_HUB
+
+// git branch
+git branch
+
+// check status 
+git status
+
+
+// add file
+git add .
+git add FILE_1 FILE_2
+
+// commit changes
+git commit -m "YOUR MESSAGE"
+
+// push committed files
+git push origin YOUR_ORIGIN
+
+// update npm
+npm install -g n
+npm cache clean -f
+
+// install mongodb
+brew install mongodb
+
+// create folder where we will be saving our database
+mkdir -p /data/db
+
+// set permissions
+sudo chown -R `id -un` /data/db
+
+// start mongo server 
+brew services start mongodb
+
+// stop mongo shell
+brew services stop mongodb
+
+// restart mongodb
+brew services restart mongodb
+
+// set username and password
+use admin
+db.createUser(
+  {
+    user: "root",
+    pwd: "P@ssw0rd",
+    roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
+  }
+)
+
+// login auth
+use admin
+db.auth("myDbOwner", "abc123")
+
+// initialize npm to your folder
+npm init -y
+
+// install node modules
+npm install -- save MODULENAME // save to the current folder
+npm install -g MODULENAME // save globally
+
+// nodemon is a convenience tool. It will watch the files in the directory it was started in,
+// and if it detects any changes, it will automatically restart your Node application 
+// (meaning you don’t have to). In contrast to Express, nodemon is not something the app requires to 
+// function properly (it just aids us with development)
+npm install --save-dev nodemon // save nodemon in dev dependencies
+
